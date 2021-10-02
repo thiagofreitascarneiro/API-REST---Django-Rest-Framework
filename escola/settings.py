@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'cursos',
+    'django_filters',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,13 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# DRF
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permission.IsAuthenticatedOrReadOnly',
+    )
+}
