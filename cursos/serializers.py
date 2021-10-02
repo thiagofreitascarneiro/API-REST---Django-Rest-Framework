@@ -6,8 +6,8 @@ from .models import Curso, Avaliacao
 class AvalizacaoSerializer(serializers.ModelSerializer):
 
     class Meta:
-        extra_kargs = {
-            'email': {'write_only': True}
+        extra_kwargs = {
+            'email': {'write_only': True} # email não sera aprensentado nas avaliações
         }
         models = Avaliacao 
         fields = (
@@ -17,6 +17,18 @@ class AvalizacaoSerializer(serializers.ModelSerializer):
             'email',
             'comentario',
             'avaliacao',
+            'publicacao',
+            'ativo'
+        )
+
+class CursoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Curso
+        fields = (
+            'id',
+            'titulo',
+            'url',
             'criacao',
             'ativo'
         )
